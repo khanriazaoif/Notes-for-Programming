@@ -76,7 +76,7 @@ if (parseInt(guess) === randomNumber ) {
 } else if ( parseInt(guess) > randomNumber) {
     var guessLess = prompt('Try again. The number I am thinking of is less than ' + guess);
     if (parseInt(guessLess) === randomNumber) {
-        correctGuess = true;
+        correctGuess ++;
     }
 }
 if ( correctGuess ) {
@@ -106,3 +106,69 @@ if ( correctGuess ) {
 //Line 84) ELSE happens if line 82 is FALSE
 //Line 85) If line 82 is FALSE then type to user 'Sorry. The number was 'randomNumber.
 //Line 86) closes conditional statement started on line 82.
+
+//THE CONDITIONAL CHALLENGE
+//write a simple quiz application.
+
+//1) it has to ask at least five questions.
+//2) keep track of the number of questions the user answered correctly.
+//3) provide a final message after the quiz,letting the user know the number of questions he or she got right.
+//4) rank the player.
+    //If the player answered all five correctly, give that player the gold crown.
+    //Three to four is a silver crown.
+    //One to two correct answers is a bronze crown.
+    //And zero correct is no crown at all.
+
+    var correctGuess = 0;
+    var question1 = prompt('What is a fireball in the sky');
+    var question2 = prompt('What says woof?');
+    var question3 = prompt('What says meow');
+    var question4 = prompt('What phone revolutionized the smartphone market');
+    var question5 = prompt('What says moo');
+    
+    if(question1.toUpperCase() === 'SUN'){
+        document.write("<p>That's right</p>");
+        correctGuess ++;
+    } else {
+        document.write("<p>That's wrong</p>");
+    } 
+    
+    if(question2.toUpperCase() === 'DOG'){
+        document.write("<p>That's right</p>");
+        correctGuess ++;
+    } else {
+        document.write("<p>That's wrong</p>");
+    } 
+    
+    if(question3.toUpperCase() === 'CAT'){
+        document.write("<p>That's right</p>");
+        correctGuess ++;
+    } else {
+        document.write("<p>That's wrong</p>");
+    } 
+    
+    if(question4.toUpperCase() === 'IPHONE'){
+        document.write("<p>That's right</p>");
+        correctGuess ++;
+    } else {
+        document.write("<p>That's wrong</p>");
+    } 
+    
+    if(question5.toUpperCase() === 'COW'){
+        document.write("<p>That's right</p>");
+        correctGuess ++;
+    } else {
+        document.write("<p>That's wrong</p>");
+    } 
+    
+    console.log(correctGuess);
+    
+    document.write('<p>You guessed ' + correctGuess + ' correctly</p>');
+    
+    if(correctGuess === 5) {
+        document.write('<p>You got a gold star</p>');
+    } else if (correctGuess >= 3) {
+        document.write('<p>You got silver</p>');
+    } else {
+        document.write('<p>You are terrible and got bronze</p>');
+    }
