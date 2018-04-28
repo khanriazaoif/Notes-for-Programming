@@ -61,7 +61,7 @@ if () {
 }
 //ELSE IF clauses HAVE to start with a IF and ends with ELSE.
 
-//IMPROVING THE RANDOM NUMBER BUESSING GAME
+//IMPROVING THE RANDOM NUMBER GUESSING GAME
 
 var correctGuess = false;
 var randomNumber = Math.floor(Math.random() * 6 ) + 1;
@@ -85,4 +85,24 @@ if ( correctGuess ) {
     document.write('<p>Sorry. The number was ' + randomNumber + '.</p>');
 }
 
-//LINE 66) 
+//LINE 66) Global Variable 'correctGuess' and set it to start out as 'FALSE'
+//LINE 67) Global Variable 'randomNumber' and get a random number between 0 and 1.
+//Line 68) Global Variable 'guess' activates a prompt on user screen that says 'I am thinking of...' 
+//Line 69) Function starts with 'IF' statement and takes whatever prompt came back in line 68 and was put in variable 'guess' which returns a string with the number in it. Then 'parseInt' takes that string and converts to a number. It then asks is the 'guess' is EQUAL TO the 'randomNumber' which is the integer that came back from line 67. 
+//Line 70) If line 69 evaluates to TRUE then line 70 runs and the variable 'correctGuess' EQUALS true.
+//Line 71) ELSE IF if the 'guess' is LESS than 'randomNumber' then run line 72 and its NOT then go to line 76
+//Line 72) Local Variable 'guessMore' EQUALS whatever the user types into prompt 'Try again. The number... is MORE than 'guess' (They should be typing in a number HIGHER than what they typed in
+//Line 73) This is a nested IF which evaulates to is 'guessMore' EQUAL TO 'randomNumber' then go to line 74.
+//Line 74) Global Variable 'correctGuess' evaluates to TRUE.
+//Line 75) Closes the IF statement that starts on line 73
+//Line 76) ELSE IF the 'guess' is GREATER THAN 'randomNumber'then go to line 77
+//Line 77) Local variable 'guessLess' EQUALS whatever the user types into prompt 'Try again. The number... is LESS than 'guess' (They should be typing in a number LOWER than what they typed in)
+//Line 78) IF 'guessLess' is EQUAL TO 'randomNumber' then go to line 79
+//Line 79) Global Variable 'correctGuess' now evaluates to TRUE.
+//Line 80) Closes the conditional statement beginning on line 78.
+//Line 81) Closes the ELSE IF started on line 76.
+//Line 82) If the 'correctGuess' is TRUE then go to line 83 if it's false go to line 84.
+//Line 83) If 'correctGuess' is TRUE then type to user 'You guess the number!'
+//Line 84) ELSE happens if line 82 is FALSE
+//Line 85) If line 82 is FALSE then type to user 'Sorry. The number was 'randomNumber.
+//Line 86) closes conditional statement started on line 82.
