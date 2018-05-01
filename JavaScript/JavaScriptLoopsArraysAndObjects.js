@@ -637,3 +637,345 @@ var questions = [
 //Line 610 VAR 'response' IS  the 'question' being asked with it's answer. Add to VAR 'response' the 'response' answer from line 609 and turn the string into a number.
 //Line 611 IF the 'response' IS EQUAL TO 'answer' then run code on line 560
 //Line 612 If line 559 is TRUE then increment 'correctAnswers' by 1.
+
+
+  //-----------------OBJECTS-----------------//
+
+//SECTION 3: TRACKING DATA USING OBJECTS 
+
+//THE OBJECT LITERAL
+
+//FUNCTIONS, ARRAYS, STRINGS, NUMBERS, BOOLEANS are all OBJECTS or can be treated as an OBJECT
+//OBJECTS are something that have PROPERTIES and METHODS
+//PROPERTY is like a VAR that belongs to the OBJECT
+//METHOD is something that can do something or be done to in an OBJECT
+[1,2,3].length
+//Line 652 the numbers in the ARRAY are an OBJECT, while .length is a PROPERTY
+//JavaScript objects let you store data in what are called 
+//'key: value' 
+//pairs, or
+//'property: value'
+//pairs.
+//The KEY or PROPERTY is like a VARIABLE name, and a VALUE is like the VALUE of that VARIABLE.
+//OBJECT think of them as a single ITEM that holds multiple VARIABLES
+var student = {}; //This is an Object Literal
+//[] creates an ARRAY
+//{} creates an OBJECT
+var student = {
+    name: 'Dave'
+} 
+//Line 664 has an OBJECT called 'student' with a KEY or PROPERTY called 'name' with the VALUE as a STRING named 'Dave'. 
+//VALUE can be STRING, NUMBER, BOOLEAN or ARRAY
+
+var person = {
+    name: 'Sarah',
+    country: 'US',
+    age: 35,
+    treehouseStudent: true,
+    skills : ['JavaScript','HTML','CSS']
+};
+//Line 670 to 676 is a OBJECT called 'person'. Inside the OBJECT there are multiple PROPERTY or KEY with their VALUE pair. KEY or PROPERTY is on the left and the VALUE is on the right.
+//You can have Strings, Numbers and ARRAYS
+
+
+// Challenge Task 1 of 2
+// Create an object named paris. To start, just create a new, empty object literal and assign it to the variable paris.
+
+var paris = {
+
+}	
+// Challenge Task 2 of 2
+// Add three properties to this object: population with a value of 2.211e6 (that's 2.211 million using exponential notation), a latitude property with a value of '48.8567 N', and a longitude property with a value of '2.3508 E'.
+var paris = {
+    population: 2.211e6,
+    latitude: '48.8567 N',
+    longitude: '2.3508 E'
+  };
+
+//----------Accessing Object Properties----------//
+
+//JavaScript objects let you store multiple pieces of information in a single variable. In this way objects are similar to arrays. However, arrays use a number, an index value to access an array item, and objects use a key to access their properties.
+
+//One way to think of a basic object like this, an object used to store properties and values is like a kind of package for variables. Think of properties as a collection of variables contained inside the object. This helps keep related data grouped in one easily accessed unit. This simplifies handling data, for example.  You can pass an object and all of its properties as a single argument to a function. This is particularly helpful if you want to return a lot of information from a function. 
+
+//Remember the return keyword in JavaScript only lets you return one thing, but by returning a object full of information, you can create a function that returns one thing that's also full of lots of information.
+
+//The below code will display on the DOCUMENT to the ID 'output'.  
+//The DOCUMENT will say the bellow message
+//Objects 
+//Hello. My name is Sarah
+//I live in the US
+//But, I wish my name was Rainbow Dash
+var person = {
+    name : 'Sarah',
+    country : 'US',
+    age : 35,
+    treehouseStudent : true,
+    skills : ['JavaScript', 'HTML', 'CSS']
+  };
+  
+  function print(mainMessage) {
+    var div = document.getElementById('output');
+    div.innerHTML = message;
+  }
+  
+  var message = '<p>Hello. My name is ' + person.name + '</p>';
+  message += '<p>I live in the ' + person.country + '</p>';
+  person.name = 'Rainbow Dash';
+  message += '<p>But, I wish my name was ' + person.name + '</p>';
+  person.age += 1;
+  message += '<p>My age is now ' + person.age + '</p>';
+  message += '<p>I have ' + person.skills.length + ' skills: ' ; 
+  message += person.skills.join(', ') + '</p>';
+  print(message);
+//Line 709-715 An OBJECT named 'person' is created. Inside it has PROPERTIES/KEYS like 'name' and 'country' and then it has VALUES like 'Sarah' and 'US'. 
+
+//Line 717-720 A FUNCTION called 'print' with the PARAMETER 'mainMessage'. When this FUNCTION is called it prints to the DOCUMENT in the ID 'output' the value 'message' which is built on lines 722-725
+
+//Line 722-729 Create a GLOBAL VAR called 'message' It uses OBJECT.PROPERTY/KEY pairings to print out a message.
+//Line 728 person.skills.length in this STRING 'person' is a OBJECT 'skills' is an OBJECT/ an ARRAY of STRING values and length is it's property.
+//Line 729 Here we start with the object person, access the skills property,which is an array, then use an array method on that property.
+
+//Line 726 Run the 'print' FUNCTION with the 'message' VAR.
+
+
+//----- Challenge Task 1 of 2-----//
+// The newYork variable contains an object, but the population is wrong. Add a line of code that sets the population property to 8.406e6. Don't change the original declaration of the object.
+var newYork = {
+    population: 100, 
+    latitude: '40.7127 N',
+    longitude: '74.0059 W'
+  };
+  newYork.population = 8.406e6; 
+  	
+//-----Challenge Task 2 of 2-----//
+// Add a new property -- country -- to newYork. Don't change the original object, just add this new property using a = sign to assign the country property to USA.
+var newYork = {
+    population: 100, 
+    latitude: '40.7127 N',
+    longitude: '74.0059 W'
+  };
+  newYork.population = 8.406e6; 
+  newYork.country = 'USA';
+
+
+//----------Using `for in` to Loop Through an Object's Properties----------//
+
+//Arrays store those values in a specific numeric position in a list, and objects store multiple values that can be accessed using a key or property name. 
+//Because array values have a numeric index, a for loop provides an easy way to access each item in the array.
+//You can also access each value in an object using a special type of loop, only available to objects. It's called a for-in loop and loops through each key or property name in the object.
+for( var key in object ) {
+    //do something
+}
+//Below example matches a OBJECT to a FOR IN LOOP
+var student = {
+    name: 'Riaz',
+    grades: [90,95,99,97]
+};
+for ( var key in student ) {
+    //do something
+}
+//Line 771-774 Creates an OBJECT called 'student' which has two PROPERTIES/KEYS 'name' and 'grades'. 'name' has a STRING value while 'grades' has an ARRAY.
+//Line 775-777 FOR IN LOOP used specially for OBJECTS
+//notice how student matches up. That is the object.
+//The variable key here refers to the property name in the object, each time through the loop, this variable key will hold a different value.
+//The variable key here refers to the property name in the object, each time through the loop, this variable key will hold a different value. 
+//For example, let's say we print the key out to the console. This would print out the property names, name and grades to the console.
+//Now the word key here isn't anything special, it's just a variable name and you could change this to property or propName, or whatever you'd like.
+//The other words, for, var, and in are key words however, and those can't be changed.
+
+//-----IMPORTANT FOR IN LOOP INFO-----//
+//The only way to access an object property using the for-in loop, is with a bracket notation, you can't use dot notation. SEE KEY below. 
+var student = {
+    name: 'Riaz',
+    grades: [90,95,99,97]
+};
+for ( var key in student ) {
+    console.log(key, ': ', person[key]);
+}
+
+//Below code outputs to the console. 
+// name : 'Sarah',
+// country : 'US',
+// age : 35,
+// treehouseStudent : true,
+// skills : ['JavaScript', 'HTML', 'CSS']
+var person = {
+    name : 'Sarah',
+    country : 'US',
+    age : 35,
+    treehouseStudent : true,
+    skills : ['JavaScript', 'HTML', 'CSS']
+  };
+  
+  for (prop in person) {
+    console.log(prop, ': ', person[prop]);
+  }
+//Line 811-814 For is the keyword that introduces the loop. Person here is the name of our object. Prop represents the name of a property in the object, it acts kind of like a parameter in a function. Each time through the loop, this prop variable will contain one key or property name in the object. Note that I named it prop, but it's just like a variable, so you can name it anything you want, key, property, student data, whatever.  
+
+
+//-----Challenge Task 1 of 2-----//
+//Use a for in loop to log each of the property names of the shanghai object to the console.
+var shanghai = {
+    population: 14.35e6,
+    longitude: '31.2000 N',
+    latitude: '121.5000 E',
+    country: 'CHN'
+  };
+  for(var key in shanghai){
+    console.log(key);
+  }  
+//-----Challenge Task 2 of 2-----//
+//Now that you are logging out the property names, include the property values too. In other words you want to log out 4 lines that include both the property name and value. For example: "population: 14.35e6"  
+var shanghai = {
+    population: 14.35e6,
+    longitude: '31.2000 N',
+    latitude: '121.5000 E',
+    country: 'CHN'
+  };
+  for(var key in shanghai){
+    console.log(key, ': ', shanghai[key]);
+  }  
+
+
+
+//----------Mixing and Matching Arrays and Objects----------//
+  
+var questions = [
+    {
+      question: 'How many states are in the United States?',
+      answer: 50
+    },
+    {
+      question: 'How many continents are there?',
+      answer: 7
+    },
+    {
+      question: 'How many legs does an insect have?',
+      answer: 6
+    }
+  ];
+  var correctAnswers = 0;
+  var question;
+  var answer;
+  var response;
+  
+  function print(message) {
+    document.write(message);
+  }
+  
+  for (var i = 0; i < questions.length; i += 1) {
+    question = questions[i].question;
+    answer = questions[i].answer;
+    response = prompt(question);
+    response = parseInt(response);
+    if (response === answer) {
+      correctAnswers += 1;
+    } 
+  }
+  
+  html = "You got " + correctAnswers + " question(s) right."
+  print(html);
+
+  //Line 844-857 An ARRAY of OBJECTS has been created with PROPERTY/KEY : VALUE pairings
+  //Line 868-869 The PROPERTY name .question and .answer replaced using Index 0 and 1.
+
+
+//-----Challenge Task 2 of 2-----//
+//Inside the array literal, add three object literals. In other words, the objects array should have three values. Each object should have 2 property/value pairs.
+var objects = [
+    {
+    question: 'How many states are in the United States?',
+    answer: 50
+  },
+  {
+    question: 'How many continents are there?',
+    answer: 7
+  },
+  {
+    question: 'How many legs does an insect have?',
+    answer: 6
+  }
+];
+
+
+//----------The Build an Object Challenge, Part 1----------//
+
+var students = [ 
+    { 
+     name: 'Dave',
+      track: 'Front End Development',
+      achievements: 158,
+      points: 14730
+    },
+    {
+      name: 'Jody',
+      track: 'iOS Development with Swift',
+      achievements: '175',
+      points: '16375'
+    },
+    {
+      name: 'Jordan',
+      track: 'PHP Development',
+      achievements: '55',
+      points: '2025'
+    },
+    {
+      name: 'John',
+      track: 'Learn WordPress',
+      achievements: '40',
+      points: '1950'
+    },
+    {
+      name: 'Trish',
+      track: 'Rails Development',
+      achievements: '5',
+      points: '350'
+    }
+  ];
+
+  //----------The Build an Object Challenge, Part 2----------//
+
+  var message = '';
+  var student;
+  var search;
+  
+  function print(message) {
+    var outputDiv = document.getElementById('output');
+    outputDiv.innerHTML = message;
+  }
+  
+  function getStudentReport( student ) {
+    var report = '<h2>Student: ' + student.name + '</h2>';
+    report += '<p>Track: ' + student.track + '</p>';
+    report += '<p>Points: ' + student.points + '</p>';
+    report += '<p>Achievements: ' + student.achievements + '</p>';
+    return report;
+  }
+  
+  while (true) {
+    search = prompt('Search student records: type a name [Jody] (or type "quit" to end)');
+    if (search === null || search.toLowerCase() === 'quit') {
+      break;
+    }
+    for (var i = 0; i < students.length; i += 1) {
+      student = students[i];
+      if ( student.name === search ) {
+        message = getStudentReport( student );
+        print(message);
+      }
+    }
+  }
+//Line 939-941 Set 3 GLOBAL VAR. 'message' is an EMPTRY string.
+
+//Line 943-946 FUNCTION 'print' prints out a 'message' to the ID #output
+
+//Line 948-954 FUNCTION 'getStudentReport' with the PARAMETER 'student' creates a LOCAL VAR 'report' and builds up a set of <H2> and <p> tags saying which PROPERTIES 'name, track, points, achievements' .
+
+//Line 956-968 WHILE LOOP that always evaluates to TRUE which causes an endless loop. BREAK statement is on line 959 once the word 'quit' has been typed in. GLOBAL VAR 'search' aks user for input of 'name' or the word 'quit'. If the word 'quit' or 'cancel' are selected then the FOR LOOP stops and goes to line 961. 
+//Line 957 if they type in a name of a student it goes to line 958 which checks to see if what user typed into the prompt 'search' was null (which is hitting cancel on the prompt), OR the user typed in 'quit' which is converted to all lower case.
+//Line 961 FOR LOOP that is a way to iterate through arrays and since you have an array of objects it will consider each object as a entire item in the array. If you want to see the properties of those objects you use dot or bracket notation. 
+//Line 962 Using the FOR LOOP the GLOBAL VAR 'student' IS one of the 'students' OBJECTS. (Basically one of the students and all their properties).
+//Line 963 Take whichever student OBJECT we are on and check to see what its 'student.name' iS EQUAL TO the user response from the PROMPT on line 957.
+//Line 964 The 'message' is updated to the STRING 'student'. The 'getStudentReport' FUNCTION is ran with the ARGUMENT 'student'. This takes the 'student' selected and passes it to the function on line 948.
+//Line 965 The 'print' FUNCTION is INVOKED and 'message' ARGUMENT is passed to on line 943. That outputs to the Document the name of the person you were looking up.
