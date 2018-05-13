@@ -1,7 +1,11 @@
-//COURSE: JAVASCRIPT LOOPS ARRAYS AND OBJECTS
-//SECTION 1: SIMPLIFY REPETITIVE TASKS WITH LOOPS 
+//*********COURSE: JAVASCRIPT LOOPS ARRAYS AND OBJECTS*********//
+//*************************************************************//
 
-//WHAT ARE LOOPS
+//**********SECTION 1: SIMPLIFY REPETITIVE TASKS WITH LOOPS*********// 
+
+
+//----------WHAT ARE LOOPS----------//
+
 
 //Below prints out 10 random numbers between 1 and 6 to the webpage
 function randomNumber(upper) {
@@ -23,7 +27,9 @@ function randomNumber(upper) {
 //Line 14 Iterate the 'counter' by 1 each time
 //When Line 14 occurs it adds 1 to the 'counter' which makes the first loop change to 1. Then it goes to line 11 again and says is '1 < 10' which it is, so it loops through 10 times and then stops when '10 < 10' because that is FALSE.
 
-// Challenge Task 1 of 1
+
+//-----Challenge Task 1 of 1-----//
+
 // This is a nearly complete while loop, but something is missing. The loop should run 10 times, but it's not working at all. Can you fix it?
 var counter = 1;
 while (counter < 11 ) {
@@ -31,7 +37,9 @@ while (counter < 11 ) {
     counter += 1;
 }
 
-// Challenge Task 1 of 1
+
+//-----Challenge Task 1 of 1-----//
+
 // In this challenge, you will create a while loop that prints to the document 26 times. We've added a variable named count, use it to track the number of times the loop runs. Don't forget to use the document.write() method inside the loop.
 var count = 0;
 while (count < 26) {
@@ -73,7 +81,8 @@ document.write("<p>It took the computer " + attempts + " attempts to get it righ
 //Line 61 Print to the screen "It took the computer + 'attempts' + attempts..."
 
 
-// Challenge Task 1 of 1
+//-----Challenge Task 1 of 1-----//
+
 // The code in app.js just opens a prompt, asks for a password and stores it in a variable secret. It also writes to the document. The current code only checks the password once. Remove the if statement and add a while loop, so that a prompt keeps appearing until the user types "sesame" into the prompt.
 var secret = prompt("What is the secret password?");
 
@@ -83,7 +92,8 @@ while (secret !== "sesame") {
 }
 document.write("You know the secret password. Welcome.");
 
-//DO WHILE LOOPS
+
+//----------DO WHILE LOOPS----------//
 
 //DO WHILE LOOPS The do while loop will always execute the code block at least once. That's because the CONDITION isn't tested until after the code block.
 //WHILE loop checks the CONDITION inside the (). The DO WHILE goes through a code block at least once BEFORE encourtering the while() CONDITIONAL.
@@ -128,7 +138,8 @@ do {
 //Line 111 Then write to the webpage 'You guessed the number!'
 //Line 112 Then write to the webpage. "It took you "" + 'guessCount' + ....
 
-// Challenge Task 1 of 1
+//-----Challenge Task 1 of 1-----//
+
 // This is the code we used in the last code challenge. After learning about do...while loops, don't you think this would work better in the do...while style? 
 // Re-write the code to use a do...while loop.
 var guessCount;
@@ -140,7 +151,7 @@ do {
 document.write("You know the secret password. Welcome.");
 
 
-//FOR LOOPS
+//----------FOR LOOPS----------//
 
 for ( var counter = 0; counter < 10; counter += 1){
     document.write( counter );
@@ -165,7 +176,9 @@ document.write(html);
 //Line 160 Write to the webpage what is in the VARIABLE 'html'
 
 
-// Challenge Task 1 of 1
+
+//-----Challenge Task 1 of 1-----//
+
 // Create a for loop that logs the numbers 4 to 156 to the console. To log a value to the console use the console.log( ) method.
 
 
@@ -263,16 +276,59 @@ print(html);
 //The loop then goes back up to line 238 and keeps running until the loop evaulates to FALSE.
 
 
-// Challenge Task 1 of 1
+//-----Challenge Task 1 of 1-----//
+
 // The code below logs all of the even numbers from 2 to 24 to the JavaScript console. However, there's a lot of redundant code here. Re-write this using a loop.
 for ( i = 2; i < 25; i += 2) {
     console.log(i);
   }
 
+//*****FOR LOOP QUIZ*****//
 
-//SECTION 2: TRACKING MULTIPLE ITEMS WITH ARRAYS 
 
-//WHAT IS AN ARRAY
+/* INSTRUCTIONS
+To run this file, click in the Console below and type: node 2_loop.js 
+If the console isn't visible, click the View menu above and choose Show Console.
+
+You can clear the console by typing `clear` and pressing enter.
+
+If your program is stuck in an infinite loop, you can break out of the program by typing ctrl + C.
+*/
+
+/*Note: We've supplied you a basic function for generating a random number from 1 to 100 */
+function random100() {
+  return Math.floor(Math.random() * 100) + 1;
+}
+
+/* 1. Create a function named createRandomList that 
+uses a for loop to create an array containing 10 random
+ numbers from 1 to 100 (use the supplied function above 
+to generate the numbers). The function should return that array. */
+function createRandomList() {
+  let randomList = [];
+  for (let i=0; i<10; i++) {
+    randomList.push(random100());
+  }
+  return randomList
+};
+
+/* 2. Call the createRandomList() function and store 
+the results in a variable named myRandomList. */
+let myRandomList = createRandomList();
+console.log(myRandomList);
+
+/* 3. Use a for loop to access each element in the loop. Each 
+time through the loop log a message to the console that looks something like this:
+Item 0 in the array is 48
+When you're done you should have output 10 lines to the console -- one for each element. 
+*/
+for (let i=0; i < myRandomList.length; i++) {
+  console.log('Item ' + i + ' in the array is ' + myRandomList[i]);
+}  
+
+//**********SECTION 2: TRACKING MULTIPLE ITEMS WITH ARRAYS*********// 
+
+//----------WHAT IS AN ARRAY----------//
 
 //An ARRAY is a flexible method of storing information. It can hold a single string, 50 numbers, or any combination of data types. Strings, numbers, booleans, and even other ARRAYS.
 //ARRAYS have []
@@ -282,14 +338,19 @@ var shoppingList = [
     'eggs'
 ];
 
-// Challenge Task 1 of 2
+
+//-----Challenge Task 1 of 2-----//
+
 // Create an array named data and store any 3 numbers in it.
 var data = [
     3,
     4,
     5
 ];
-// Challenge Task 2 of 2
+
+
+//-----Challenge Task 2 of 2-----//
+
 // Leave the data array in place. Add another line of code that creates a second array named assorted. Assign one string value, a number and a Boolean value (like true or false) to the array. The complete assorted array should have 3 values total.
 var data = [
     3,
@@ -302,14 +363,15 @@ var assorted = [
     false
 ];
 
-//ACCESSING ITEMS IN AN ARRAY
+//----------ACCESSING ITEMS IN AN ARRAY----------//
 
 var shopping = [ 'carrots', 'milk', 'eggs' ];
 console.log(shopping[0]);
 //Line 307 GLOBAL VAR 'shopping' with ARRAY with 3 items. The first item in an array is 0
 //Line 308 console.log the ARRAY shopping 0 INDEX item which is carrots
 
-//ADDING DATA TO AN ARRAY
+
+//----------ADDING DATA TO AN ARRAY----------//
 
 //.length is a PROPERTY
 //numbers.length the length PROPERTY is like a VAR for the ARRAY
@@ -358,19 +420,26 @@ printList(playList);
 //Line 339 PUT AT THE FRONT OF THE ARRAY. So line 339 goest first then 337 and then 338
 //Line 340 PUT AT THE FRONT OF THE ARRAY. So line 340 goes first then 339 then 337 then 338
 //Line 342 RUN FUNCTION 'printList' which runs the code in helpers.js file which writes to the document the list of songs.
+//**********SECTION 1: SIMPLIFY REPETITIVE TASKS WITH LOOPS*********// 
 
-// Challenge Task 1 of 2
+
+//-----Challenge Task 1 of 2-----//
+
 // The script.js file contains an array called guestList. It contains a list of names. Add two new names to the end of the list using the array push( ) method. Do not attempt to display the names - only add them to the array.
 var guestList = ['Sandra', 'Omar', 'Magnus', 'Becky'];
 guestList.push('Riaz', 'Hema');
-// Challenge Task 2 of 2
+
+//-----Challenge Task 2 of 2-----//
+
 // Now, leaving the code from the last task in place, add 3 names to the beginning of the list using the unshift( ) array method. The final array should have 9 names in it. Do not attempt to display the names - only add them to the array.
 var guestList = ['Sandra', 'Omar', 'Magnus', 'Becky'];
 guestList.push('Riaz', 'Hema');
 guestList.unshift('Rose', 'Rowdy', 'Rogue');
 
 
-//REMOVING ITEMS FROM ARRAYS
+
+//----------REMOVING ITEMS FROM ARRAYS----------//
+
 
 //.pop opposite of .push  .pop will POP the last ITEM off the end of the ARRAY. NOT ONLY DOES IT REMOVE THE LAST ITEM IT "RETURNS" THE LAST ITEM.
 var numbers = [1,2,3,4];
@@ -384,18 +453,21 @@ var firstItem = numbers.shift();
 //Line 382 ARRAY named 'numbers'
 //Line 383 Remove the first number in the ARRAY which is 1 and RETURN the value.
 
-// Challenge Task 1 of 2
+//-----Challenge Task 1 of 1-----//
+
 // The orderQueue array contains a list of customer orders. Create a new variable named shipping -- remove the first item from the array and place it in the shipping variable.
 var orderQueue = ['1XT567437','1U7857317','1I9222528'];
 var shipping = orderQueue.shift();
-// Challenge Task 2 of 2
+
+//-----Challenge Task 2 of 2-----//
+
 // Now create a new variable named cancelled. Remove the last item from the orderQueue array and store it in the variable cancelled. Use the array method you learned in the last video for this challenge.
 var orderQueue = ['1XT567437','1U7857317','1I9222528'];
 var shipping = orderQueue.shift();
 var cancelled = orderQueue.pop();
 
 
-//USING FOR LOOPS WITH ARRAYS
+//----------USING FOR LOOPS WITH ARRAYS----------//
 
 //Below code has a ARRAY called playList. It outputs in a list the 6 song names.
 var playList = [
@@ -436,7 +508,9 @@ var playList = [
 //Line 421 Close the FUNCTION 'printList' on line 414
 //Line 422 Call the FUNCTION 'printList' which is on line 414 and give it the ARGUMENT 'playList' which is the ARRAY of ITEMS from line 401.
 
-// Challenge Task 1 of 1
+
+//-----Challenge Task 1 of 1-----//
+
 // Use a for or while loop to iterate through the values in the temperatures array from the first item -- 100 -- to the last -- 10. Inside the loop, log the current array value to the console.
 var temperatures = [100,90,99,80,70,65,30,10];
 for(i = 0; i < temperatures.length; i ++){
@@ -444,7 +518,7 @@ for(i = 0; i < temperatures.length; i ++){
 }
 
 
-//USEFUL ARRAY METHOD
+//----------USEFUL ARRAY METHOD----------//
 
 //.join joins all the items in an array into one list.
 //.concat will concatenate two arrays
@@ -491,14 +565,15 @@ while (true) {
 //Line 471 Print to the document "'search' is not in stock".
 
 	
-// Challenge Task 1 of 1
+//-----Challenge Task 1 of 1-----//
+
 // Use the array method that combines all of the items in an array into a single string. In the final string, the array items should be separated by a comma AND a space. Finally, log the final string value to the console.
 var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
 console.log(months.join(', '));
 
 
-//TWO DIMENSIONAL ARRAYS
+//----------TWO DIMENSIONAL ARRAYS----------//
 
 var playList = [
     ['I Did It My Way', 'Frank Sinatra'],
@@ -639,11 +714,15 @@ var questions = [
 //Line 612 If line 559 is TRUE then increment 'correctAnswers' by 1.
 
 
-  //-----------------OBJECTS-----------------//
+//-----------------OBJECTS-----------------//
 
-//SECTION 3: TRACKING DATA USING OBJECTS 
 
-//THE OBJECT LITERAL
+
+
+//**********SECTION 3: TRACKING DATA USING OBJECTS*********// 
+
+//----------THE OBJECT LITERAL----------//
+
 
 //FUNCTIONS, ARRAYS, STRINGS, NUMBERS, BOOLEANS are all OBJECTS or can be treated as an OBJECT
 //OBJECTS are something that have PROPERTIES and METHODS
@@ -692,7 +771,8 @@ var paris = {
     longitude: '2.3508 E'
   };
 
-//----------Accessing Object Properties----------//
+
+//----------ACCESSING OBJECT PROPERTIES----------//
 
 //JavaScript objects let you store multiple pieces of information in a single variable. In this way objects are similar to arrays. However, arrays use a number, an index value to access an array item, and objects use a key to access their properties.
 
@@ -740,6 +820,7 @@ var person = {
 
 
 //----- Challenge Task 1 of 2-----//
+
 // The newYork variable contains an object, but the population is wrong. Add a line of code that sets the population property to 8.406e6. Don't change the original declaration of the object.
 var newYork = {
     population: 100, 
@@ -749,6 +830,7 @@ var newYork = {
   newYork.population = 8.406e6; 
   	
 //-----Challenge Task 2 of 2-----//
+
 // Add a new property -- country -- to newYork. Don't change the original object, just add this new property using a = sign to assign the country property to USA.
 var newYork = {
     population: 100, 
@@ -785,6 +867,7 @@ for ( var key in student ) {
 //The other words, for, var, and in are key words however, and those can't be changed.
 
 //-----IMPORTANT FOR IN LOOP INFO-----//
+
 //The only way to access an object property using the for-in loop, is with a bracket notation, you can't use dot notation. SEE KEY below. 
 var student = {
     name: 'Riaz',
@@ -815,6 +898,7 @@ var person = {
 
 
 //-----Challenge Task 1 of 2-----//
+
 //Use a for in loop to log each of the property names of the shanghai object to the console.
 var shanghai = {
     population: 14.35e6,
@@ -825,7 +909,9 @@ var shanghai = {
   for(var key in shanghai){
     console.log(key);
   }  
+
 //-----Challenge Task 2 of 2-----//
+
 //Now that you are logging out the property names, include the property values too. In other words you want to log out 4 lines that include both the property name and value. For example: "population: 14.35e6"  
 var shanghai = {
     population: 14.35e6,
@@ -839,7 +925,7 @@ var shanghai = {
 
 
 
-//----------Mixing and Matching Arrays and Objects----------//
+//----------MIXING AND MATCHING ARRAYS AND OBJECTS----------//
   
 var questions = [
     {
@@ -882,6 +968,7 @@ var questions = [
 
 
 //-----Challenge Task 2 of 2-----//
+
 //Inside the array literal, add three object literals. In other words, the objects array should have three values. Each object should have 2 property/value pairs.
 var objects = [
     {

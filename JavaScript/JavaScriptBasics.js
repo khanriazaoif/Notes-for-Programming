@@ -1,7 +1,8 @@
 //COURSE: JAVASCRIPT BASICS
 //SECTION 4:MAKING DECISIONS WITH CONDITIONAL STATEMENTS 
 
-//INTRODUCING CONDITIONAL STATEMENTS
+
+//---------INTRODUCING CONDITIONAL STATEMENTS---------//
 
 if() {
 
@@ -28,7 +29,7 @@ const answer = prompt('What programming language is the name of a gem');
 //Line 23 ELSE statement is now looking at IF the answer to the condition on line 20 is FALSE then line 22 will run.
 //Line 24 If line 19 is FALSE this line will run, outputting "Sorry, that's wrong" on the webbpage.
 
-//BUILD A RANDOM NUMBER GUESSING GAME
+//---------BUILD A RANDOM NUMBER GUESSING GAME---------//
 
 let randomNumber = Math.floor(Math.random() * 6) + 1;
 const guess = prompt('I am thinking of a number between 1 and 6, what is it?');
@@ -44,7 +45,7 @@ if (parseInt(guess) === randomNumber) {
 //Line 39) ELSE
 //Line 40) If the answer to the CONDITIONAL on line 33 is FALSE then this line will run and the words "Sorry. The number was ..." outputs to the webpage.
 
-//PROGRAMMING MULTIPLE OUTCOMES USING ELSE IF
+//---------PROGRAMMING MULTIPLE OUTCOMES USING ELSE IF---------//
 
 if () {
 
@@ -61,7 +62,8 @@ if () {
 }
 //ELSE IF clauses HAVE to start with a IF and ends with ELSE.
 
-//IMPROVING THE RANDOM NUMBER GUESSING GAME
+
+//---------IMPROVING THE RANDOM NUMBER GUESSING GAME---------//
 
 var correctGuess = false;
 var randomNumber = Math.floor(Math.random() * 6 ) + 1;
@@ -177,7 +179,7 @@ if ( correctGuess ) {
 
 //SECTION 5: CREATING REUSABLE CODE WITH FUNCTIONS
 
-//INTRODUCING FUNCTIONS
+//---------INTRODUCING FUNCTIONS---------//
 
 //Like a CONDITIONAL STATEMENT a FUNCTION also does not have ; at the end.
 //Place FUNCTIONS at the top of your file.

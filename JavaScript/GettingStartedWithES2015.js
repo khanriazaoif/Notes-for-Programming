@@ -14,16 +14,15 @@ const pi = 3.14159;
 //You will use them to store numbers that shouldn't change when your program runs. For example, tax rates, dimensions of user interface components and product prices are good examples.
 //And you'll use constants when you're selecting elements on a page, or when you're assigning a function to a variable.
 
-    <script>
-      const name = "Andrew";
+const name = "Andrew";
 
-      function createFullName(fName, lName) {
-          const name = fName + " " + lName;
-          console.log(name);
-      }
-      console.log(name);
-      createFullName("Joel", "Kraft");
-    </script>
+function createFullName(fName, lName) {
+    const name = fName + " " + lName;
+    console.log(name);
+}
+console.log(name);
+createFullName("Joel", "Kraft");
+
   
 
 //----------Using Constants with Arrays and Objects----------//
