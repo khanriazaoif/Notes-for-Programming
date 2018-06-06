@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<title>1.2 Registering Names</title>
+	</head>
+<body>
+<h1>1.2 Registering Names</h1>
+
+<ul>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/Events/submit">The submit event - MDN</a></li>
+	<li><a href="https://teamtreehouse.com/library/defining-variables-with-let-and-const">Defining variables with let and const – Treehouse workshop</a></li>
+	<li><a href="https://teamtreehouse.com/library/introducing-arrow-function-syntax">Introducing Arrow Function Syntax – Treehouse workshop</a></li>
+	<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault">preventDefault() – MDN</a></li>
+	<li>You can submit a form in multiple ways. You can click the Submit button, but you can also just hit the Enter key, and that&#39;s the way I often do it.</li>
+	<li>Now to capture both methods of submitting, we can set a handler on the form itself. You see forms have a special event called submit that we can listen for and a submit event will fire when the user either clicks Submit or hits Enter.</li>
+	<li>Now to log the inputs value to the console, type <code>console.log</code> and <code>input.value</code></li>
+	<li>The page is reloading when the form is submitted. This is the normal behavior of a form when an HTML form is submitted, the browser sends the information to the URL specified by the action attribute and loads that URL as well, just like following a link.
+
+		<ul>
+			<li>So how can we prevent this from happening? Well the DOM event object can help us with the prevent default method. Prevent default cancels the default behavior associated with an event</li>
+			<li>So we can use this method <code>preventDefault()</code>on the event object in our submit handler.</li>
+		</ul></li>
+	<li>store the input value into a variable called text with <code>const text = input.value</code></li>
+</ul>
+
+<pre><code class="code-highlighted code-html">&lt;<span class="syntax-all syntax-tag">body</span>&gt;
+  &lt;<span class="syntax-all syntax-tag">div</span> <span class="syntax-all syntax-entity">class</span>=<span class="syntax-all syntax-string">&quot;wrapper&quot;</span>&gt;
+	&lt;<span class="syntax-all syntax-tag">header</span>&gt;
+	  &lt;<span class="syntax-all syntax-tag">h1</span>&gt;RSVP&lt;/<span class="syntax-all syntax-tag">h1</span>&gt;
+	  &lt;<span class="syntax-all syntax-tag">p</span>&gt;A Treehouse App&lt;/<span class="syntax-all syntax-tag">p</span>&gt;
+	  &lt;<span class="syntax-all syntax-tag">form</span> <span class="syntax-all syntax-entity">id</span>=<span class="syntax-all syntax-string">&quot;registrar&quot;</span>&gt;
+		&lt;<span class="syntax-all syntax-tag">input</span> <span class="syntax-all syntax-entity">type</span>=<span class="syntax-all syntax-string">&quot;text&quot;</span> <span class="syntax-all syntax-entity">name</span>=<span class="syntax-all syntax-string">&quot;name&quot;</span> <span class="syntax-all syntax-entity">placeholder</span>=<span class="syntax-all syntax-string">&quot;Invite Someone&quot;</span>&gt;
+		&lt;<span class="syntax-all syntax-tag">button</span> <span class="syntax-all syntax-entity">type</span>=<span class="syntax-all syntax-string">&quot;submit&quot;</span> <span class="syntax-all syntax-entity">name</span>=<span class="syntax-all syntax-string">&quot;submit&quot;</span> <span class="syntax-all syntax-entity">value</span>=<span class="syntax-all syntax-string">&quot;submit&quot;</span>&gt;Submit&lt;/<span class="syntax-all syntax-tag">button</span>&gt;
+	  &lt;/<span class="syntax-all syntax-tag">form</span>&gt;
+	&lt;/<span class="syntax-all syntax-tag">header</span>&gt;
+		
+	&lt;<span class="syntax-all syntax-tag">div</span> <span class="syntax-all syntax-entity">class</span>=<span class="syntax-all syntax-string">&quot;main&quot;</span>&gt;	
+	  &lt;<span class="syntax-all syntax-tag">h2</span>&gt;Invitees&lt;/<span class="syntax-all syntax-tag">h2</span>&gt;
+	  &lt;<span class="syntax-all syntax-tag">ul</span> <span class="syntax-all syntax-entity">id</span>=<span class="syntax-all syntax-string">&quot;invitedList&quot;</span>&gt;&lt;/<span class="syntax-all syntax-tag">ul</span>&gt;	
+	&lt;/<span class="syntax-all syntax-tag">div</span>&gt;
+  &lt;/<span class="syntax-all syntax-tag">div</span>&gt;
+  &lt;<span class="syntax-all syntax-tag">script</span> <span class="syntax-all syntax-entity">type</span>=<span class="syntax-all syntax-string">&quot;text/javascript&quot;</span> <span class="syntax-all syntax-entity">src</span>=<span class="syntax-all syntax-string">&quot;app.js&quot;</span>&gt;&lt;/<span class="syntax-all syntax-tag">script</span>&gt;
+&lt;/<span class="syntax-all syntax-tag">body</span>&gt;</code></pre>
+
+<pre><code class="code-highlighted code-js"><span class="syntax-all syntax-keyword">const</span> <span class="syntax-all syntax-parameter">form</span> <span class="syntax-all syntax-keyword">=</span> <span class="syntax-all syntax-constant">document</span><span class="syntax-all syntax-keyword">.</span><span class="syntax-all syntax-variable">getElementById</span>(<span class="syntax-all syntax-string">&#39;registrar&#39;</span>);
+<span class="syntax-all syntax-keyword">const</span> <span class="syntax-all syntax-parameter">input</span> <span class="syntax-all syntax-keyword">=</span> <span class="syntax-all syntax-parameter">form</span><span class="syntax-all syntax-keyword">.</span><span class="syntax-all syntax-variable">querySelector</span>(<span class="syntax-all syntax-string">&#39;input&#39;</span>);
+
+<span class="syntax-all syntax-parameter">form</span><span class="syntax-all syntax-keyword">.</span><span class="syntax-all syntax-variable">addEventListener</span>(<span class="syntax-all syntax-string">&#39;submit&#39;</span>, (<span class="syntax-all syntax-parameter">e</span>) <span class="syntax-all syntax-keyword">=&gt;</span> {
+  <span class="syntax-all syntax-parameter">e</span><span class="syntax-all syntax-keyword">.</span><span class="syntax-all syntax-variable">preventDefault</span>();
+  <span class="syntax-all syntax-keyword">const</span> <span class="syntax-all syntax-parameter">text</span> <span class="syntax-all syntax-keyword">=</span> <span class="syntax-all syntax-parameter">input</span><span class="syntax-all syntax-keyword">.</span><span class="syntax-all syntax-parameter">value</span>;
+  <span class="syntax-all syntax-parameter">input</span><span class="syntax-all syntax-keyword">.</span><span class="syntax-all syntax-parameter">value</span> <span class="syntax-all syntax-keyword">=</span> <span class="syntax-all syntax-string">&#39;&#39;</span>;
+  <span class="syntax-all syntax-keyword">const</span> <span class="syntax-all syntax-parameter">ul</span> <span class="syntax-all syntax-keyword">=</span> <span class="syntax-all syntax-constant">document</span><span class="syntax-all syntax-keyword">.</span><span class="syntax-all syntax-variable">getElementById</span>(<span class="syntax-all syntax-string">&#39;invitedList&#39;</span>);
+  <span class="syntax-all syntax-keyword">const</span> <span class="syntax-all syntax-parameter">li</span> <span class="syntax-all syntax-keyword">=</span> <span class="syntax-all syntax-constant">document</span><span class="syntax-all syntax-keyword">.</span><span class="syntax-all syntax-variable">createElement</span>(<span class="syntax-all syntax-string">&#39;li&#39;</span>);
+  <span class="syntax-all syntax-parameter">li</span><span class="syntax-all syntax-keyword">.</span><span class="syntax-all syntax-parameter">textContent</span> <span class="syntax-all syntax-keyword">=</span> <span class="syntax-all syntax-parameter">text</span>;
+  <span class="syntax-all syntax-parameter">ul</span><span class="syntax-all syntax-keyword">.</span><span class="syntax-all syntax-variable">appendChild</span>(<span class="syntax-all syntax-parameter">li</span>);
+});</code></pre>
+
+<ul>
+	<li></li>
+</ul>
+
+<h2>Code breakdown</h2>
+
+<pre><code class="code-highlighted code-js"><span class="syntax-all syntax-keyword">const</span> <span class="syntax-all syntax-parameter">form</span> <span class="syntax-all syntax-keyword">=</span> <span class="syntax-all syntax-constant">document</span><span class="syntax-all syntax-keyword">.</span><span class="syntax-all syntax-variable">getElementById</span>(<span class="syntax-all syntax-string">&#39;registrar&#39;</span>);
+<span class="syntax-all syntax-keyword">const</span> <span class="syntax-all syntax-parameter">input</span> <span class="syntax-all syntax-keyword">=</span> <span class="syntax-all syntax-parameter">form</span><span class="syntax-all syntax-keyword">.</span><span class="syntax-all syntax-variable">querySelector</span>(<span class="syntax-all syntax-string">&#39;input&#39;</span>);</code></pre>
+
+<ul>
+	<li><code>const form</code>selects the <code>id</code> <code>registrar</code> and stores in variable <code>form</code></li>
+	<li><code>const input</code> takes the <code>form</code> variable from above and selects the <code>input</code>element attached to <code>registrat</code>
+
+		<ul>
+	<li><pre><code class="code-highlighted code-html"> &lt;<span class="syntax-all syntax-tag">form</span> <span class="syntax-all syntax-entity">id</span>=<span class="syntax-all syntax-string">&quot;registrar&quot;</span>&gt;
+		&lt;<span class="syntax-all syntax-tag">input</span> <span class="syntax-all syntax-entity">type</span>=<span class="syntax-all syntax-string">&quot;text&quot;</span> <span class="syntax-all syntax-entity">name</span>=<span class="syntax-all syntax-string">&quot;name&quot;</span> <span class="syntax-all syntax-entity">placeholder</span>=<span class="syntax-all syntax-string">&quot;Invite 
+</span></code></pre></li>
+			<li><code>input</code> selects the input above</li>
+		</ul></li>
+</ul>
+
+<pre><code class="code-highlighted code-js"><span class="syntax-all syntax-parameter">form</span><span class="syntax-all syntax-keyword">.</span><span class="syntax-all syntax-variable">addEventListener</span>(<span class="syntax-all syntax-string">&#39;submit&#39;</span>, (<span class="syntax-all syntax-parameter">e</span>) <span class="syntax-all syntax-keyword">=&gt;</span> {</code></pre>
+
+<ul>
+	<li>an event listener has been attached to the <code>form</code> form as a <code>submit</code> button which takes a click or enter on the keyboard. The <em>function</em> is passed the argument <code>e</code> which is for the <em>event</em></li>
+</ul>
+
+<pre><code class="code-highlighted code-js"><span class="syntax-all syntax-parameter">e</span><span class="syntax-all syntax-keyword">.</span><span class="syntax-all syntax-variable">preventDefault</span>();<span class="syntax-all syntax-string">`</span></code></pre>
+
+<ul>
+	<li>Stops the default behavior of the browser to reload every time the submit handler is invoked.</li>
+</ul>
+
+<pre><code class="code-highlighted code-js"><span class="syntax-all syntax-keyword">const</span> <span class="syntax-all syntax-parameter">text</span> <span class="syntax-all syntax-keyword">=</span> <span class="syntax-all syntax-parameter">input</span><span class="syntax-all syntax-keyword">.</span><span class="syntax-all syntax-parameter">value</span>;</code></pre>
+
+<ul>
+	<li>local variable named <code>text</code> that stores the value from the <code>input</code> field</li>
+</ul>
+
+<pre><code class="code-highlighted code-js"><span class="syntax-all syntax-parameter">input</span><span class="syntax-all syntax-keyword">.</span><span class="syntax-all syntax-parameter">value</span> <span class="syntax-all syntax-keyword">=</span> <span class="syntax-all syntax-string">&#39;&#39;</span>;</code></pre>
+
+<ul>
+	<li>Change the value of the input to blank so when you type in a name and push enter, it removes whatever name you typed in the input field and leave it blank.</li>
+</ul>
+
+<pre><code class="code-highlighted code-js"><span class="syntax-all syntax-keyword">const</span> <span class="syntax-all syntax-parameter">ul</span> <span class="syntax-all syntax-keyword">=</span> <span class="syntax-all syntax-constant">document</span><span class="syntax-all syntax-keyword">.</span><span class="syntax-all syntax-variable">getElementById</span>(<span class="syntax-all syntax-string">&#39;invitedList&#39;</span>);</code></pre>
+
+<ul>
+	<li>local variable <code>const ul</code> takes the <code>invitedList</code> <em>id</em> and stores in variable <code>ul</code>
+
+		<ul>
+	<li><pre><code class="code-highlighted code-html">&lt;<span class="syntax-all syntax-tag">div</span> <span class="syntax-all syntax-entity">class</span>=<span class="syntax-all syntax-string">&quot;main&quot;</span>&gt;	
+	  &lt;<span class="syntax-all syntax-tag">h2</span>&gt;Invitees&lt;/<span class="syntax-all syntax-tag">h2</span>&gt;
+	  &lt;<span class="syntax-all syntax-tag">ul</span> <span class="syntax-all syntax-entity">id</span>=<span class="syntax-all syntax-string">&quot;invitedList&quot;</span>&gt;&lt;/<span class="syntax-all syntax-tag">ul</span>&gt;	
+	&lt;/<span class="syntax-all syntax-tag">div</span>&gt;</code></pre></li>
+		</ul></li>
+</ul>
+
+<pre><code class="code-highlighted code-js"><span class="syntax-all syntax-keyword">const</span> <span class="syntax-all syntax-parameter">li</span> <span class="syntax-all syntax-keyword">=</span> <span class="syntax-all syntax-constant">document</span><span class="syntax-all syntax-keyword">.</span><span class="syntax-all syntax-variable">createElement</span>(<span class="syntax-all syntax-string">&#39;li&#39;</span>);</code></pre>
+
+<ul>
+	<li>local variable <code>const li</code> creates an <code>li</code> element</li>
+</ul>
+
+<pre><code class="code-highlighted code-js"><span class="syntax-all syntax-parameter">li</span><span class="syntax-all syntax-keyword">.</span><span class="syntax-all syntax-parameter">textContent</span> <span class="syntax-all syntax-keyword">=</span> <span class="syntax-all syntax-parameter">text</span>;</code></pre>
+
+<ul>
+	<li>variable <code>li</code> which was created above which creates an <code>li</code> list item has the text content replaced with the <code>text</code> input from the user.</li>
+</ul>
+
+<pre><code class="code-highlighted code-js"><span class="syntax-all syntax-parameter">ul</span><span class="syntax-all syntax-keyword">.</span><span class="syntax-all syntax-variable">appendChild</span>(<span class="syntax-all syntax-parameter">li</span>);</code></pre>
+
+<ul>
+	<li>variable <code>ul</code> created above has the new <code>li</code> list item attached to the <code>ul</code></li>
+</ul>
+
+<p>This is below outputs.</p>
+
+<figure><img src="Screen%20Shot%202018-06-06%20at%2010.28.34%20AM.png"/></figure>
+
+<p>Below is what it looks like when I added two names</p>
+
+<figure><img src="Screen%20Shot%202018-06-06%20at%2010.28.53%20AM.png"/></figure>
+
+</body>
+</html>
+
